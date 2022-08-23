@@ -1,0 +1,38 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended",
+    "airbnb-base",
+    "airbnb-typescript/base"
+  ],
+  "plugins": ["@typescript-eslint", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "comma-dangle": ["error", "only-multiline"],
+    "no-var":"error",
+    "no-duplicate-imports": "error",
+    "no-unused-vars":"error",
+    "@typescript-eslint/explicit-function-return-type": "error",
+    "prettier/prettier": ["error", { "endOfLine": "auto",  "trailingComma": "all" }],
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-var-requires": "error",
+    "@typescript-eslint/no-unused-expressions":"off",
+    "no-console": "off",
+    "no-param-reassign":"off",
+    "import/prefer-default-export":"off", 
+  },
+  "env": {
+    "browser": false,
+    "es6": true
+  },
+  "root": true
+}
