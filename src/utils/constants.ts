@@ -5,3 +5,7 @@ export const logger = (message: LogMessage): void => {
 export const routes = {
   verifyEmail: '/verifyEmail',
 };
+
+export const errorMessages = {
+  incompleteReqData: 'Error. Data for saving hasn`t been transferred.',
+};
