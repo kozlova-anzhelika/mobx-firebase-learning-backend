@@ -23,4 +23,6 @@ const UserSchema = new Schema(
   },
 );
 
-const Movie = model<UserDocument>('User', UserSchema);
+const User = model<UserDocument>('User', UserSchema);
+
+export default User;
