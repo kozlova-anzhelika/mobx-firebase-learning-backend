@@ -18,11 +18,12 @@ verifyEmailRouter.post(routes.verifyEmail, async (req: Request, res: Response) =
     });
   }
 
+  const { email } = req.body;
   const confirmationCode = generateConfirmationCode();
 
   try {
     const user = await User.findOneAndUpdate(
-      { email: req.body.email },
+      { email },
       {
         $set: {
           confirmationCode,
@@ -31,7 +32,7 @@ verifyEmailRouter.post(routes.verifyEmail, async (req: Request, res: Response) =
     );
     if (!user) {
       const newUser = new User({
-        email: req.body.email,
+        email,
         confirmationCode,
       });
       await newUser.save();
