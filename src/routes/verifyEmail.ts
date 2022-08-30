@@ -40,6 +40,9 @@ verifyEmailRouter.post(routes.verifyEmail, async (req: Request, res: Response) =
       message: 'ok',
     });
   } catch (error) {
+    res.status(500).json({
+      message: errorMessages.common,
+    });
     logger(error.message);
   }
 });
