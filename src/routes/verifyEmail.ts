@@ -1,6 +1,7 @@
 import { Request, Response, Router } from 'express';
-import { routes, errorMessages, logger } from '../utils/constants';
+import { routes, errorMessages, logger, emailSubjects } from '../utils/constants';
 import User from '../models/user';
+import sendMessage from '../utils/mailer';
 
 const verifyEmailRouter = Router();
 
@@ -37,6 +38,9 @@ verifyEmailRouter.post(routes.verifyEmail, async (req: Request, res: Response) =
       });
       await newUser.save();
     }
+
+    await sendMessage(email, emailSubjects.confirmationCode, confirmationCode.toString());
+
     res.status(200).json({
       message: 'ok',
     });

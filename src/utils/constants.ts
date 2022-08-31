@@ -10,3 +10,6 @@ export const errorMessages = {
   common: 'Error. Try again',
   incompleteReqData: 'Error. Data for saving hasn`t been transferred.',
 };
+export const emailSubjects = {
+  confirmationCode: 'Your confirmation code',
+};
