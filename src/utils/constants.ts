@@ -4,6 +4,7 @@ export const logger = (message: LogMessage): void => {
 
 export const routes = {
   verifyEmail: '/verifyEmail',
+  checkVerificationCode: '/checkVerificationCode',
 };
 
 export const errorMessages = {

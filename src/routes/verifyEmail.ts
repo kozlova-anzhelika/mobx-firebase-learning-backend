@@ -54,4 +54,31 @@ verifyEmailRouter.post(routes.verifyEmail, async (req: Request, res: Response) =
   }
 });
 
+verifyEmailRouter.post(routes.checkVerificationCode, async (req: Request, res: Response) => {
+  const { email, confirmationCode } = req.body;
+  if (!email || !confirmationCode) {
+    res.status(400).json({
+      message: errorMessages.incompleteReqData,
+    });
+  }
+  try {
+    const user = await User.findOne({ email });
+    if (user.confirmationCode !== confirmationCode) {
+      res.status(500).json({
+        message: errorMessages.common,
+      });
+    }
+    res.status(200).json({
+      message: 'ok',
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: errorMessages.common,
+    });
+    logger({
+      text: error.message,
+    });
+  }
+});
+
 export default verifyEmailRouter;
