@@ -4,6 +4,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import verifyEmailRouter from './routes/verifyEmail';
 import { logger } from './utils/constants';
+import mailer from './utils/mailer';
 
 dotenv.config();
 
@@ -32,5 +33,7 @@ async function start(): Promise<void> {
     logger(error);
   }
 }
+
+mailer().catch(console.error);
 
 start();
