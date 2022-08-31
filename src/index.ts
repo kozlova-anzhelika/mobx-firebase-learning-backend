@@ -4,7 +4,6 @@ import express from 'express';
 import mongoose from 'mongoose';
 import verifyEmailRouter from './routes/verifyEmail';
 import { logger } from './utils/constants';
-import sendMessage from './utils/mailer';
 
 dotenv.config();
 
