@@ -44,7 +44,9 @@ verifyEmailRouter.post(routes.verifyEmail, async (req: Request, res: Response) =
     res.status(500).json({
       message: errorMessages.common,
     });
-    logger(error.message);
+    logger({
+      text: error.message,
+    });
   }
 });
 
