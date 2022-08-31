@@ -4,7 +4,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import verifyEmailRouter from './routes/verifyEmail';
 import { logger } from './utils/constants';
-import mailer from './utils/mailer';
+import sendMessage from './utils/mailer';
 
 dotenv.config();
 
@@ -30,10 +30,10 @@ async function start(): Promise<void> {
       console.log(`Server has been started on port ${PORT}`);
     });
   } catch (error) {
-    logger(error);
+    logger({
+      text: error,
+    });
   }
 }
-
-mailer().catch(console.error);
 
 start();
