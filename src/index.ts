@@ -2,12 +2,15 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 import verifyEmailRouter from './routes/verifyEmail';
 import { logger } from './utils/constants';
 
 dotenv.config();
 
 const app = express();
+app.use(cors());
+
 const PORT = process.env.PORT || 5000;
 const databaseUri = `mongodb://localhost:${process.env.REACT_APP_MONGO_PORT}/${process.env.REACT_APP_MONGO_DATA_BASE_NAME}`;
 
