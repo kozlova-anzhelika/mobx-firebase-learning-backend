@@ -8,14 +8,14 @@ const emailTransporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: process.env.REACT_APP_EMAIL_USER,
-    pass: process.env.REACT_APP__EMAIL_PASS,
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
 const sendMessage = async (to: string, subject: string, text: string): Promise<void> => {
   await emailTransporter.sendMail({
-    from: process.env.REACT_APP_EMAIL_USER,
+    from: process.env.EMAIL_USER,
     to,
     subject,
     text,

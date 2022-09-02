@@ -12,7 +12,7 @@ const app = express();
 app.use(cors());
 
 const PORT = process.env.PORT || 5000;
-const databaseUri = `mongodb://localhost:${process.env.REACT_APP_MONGO_PORT}/${process.env.REACT_APP_MONGO_DATA_BASE_NAME}`;
+const databaseUri = `mongodb://localhost:${process.env.MONGO_PORT}/${process.env.MONGO_DATA_BASE_NAME}`;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
